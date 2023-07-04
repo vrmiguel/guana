@@ -15,6 +15,7 @@ async fn main() -> Result {
 
     let addr = "[::1]:50051".parse().unwrap();
 
+    tracing::info!("Starting server on {addr}");
     user_agent_analyzer_router().serve(addr).await?;
 
     Ok(())

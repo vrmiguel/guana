@@ -30,7 +30,7 @@ type TonicResult<T> = std::result::Result<Response<T>, Status>;
 /// }
 /// ```
 pub fn user_agent_analyzer_router() -> Router {
-    // Allows the gRPC to answer the following queries:
+    // Allows the gRPC server to answer the following queries:
     //
     // 1. What methods does a server export?
     // 2. For a particular method, how do we call it?
