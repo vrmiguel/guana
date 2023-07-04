@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package user_agent_analyzer;
+
+service UserAgentAnalyzer {
+  rpc AnalyzeUserAgent(UserAgentRequest) returns (AnalyzeResponse);
+}
+
+message UserAgentRequest {
+  string user_agent = 1;
+}
+
+message AnalyzeResponse {
+  enum Decision {
+    BLOCK = 0;
+    ALLOW = 1;
+    UNKNOWN = 2;
+  }
+
+  Decision decision = 1;
+}
