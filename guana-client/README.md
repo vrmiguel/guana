@@ -4,9 +4,9 @@ The Guana Client is a tool designed to interact with the Guana server, facilitat
 
 The library allows for easy integration of the Guana Client into larger Rust projects, providing a convenient way to interact with the server. The binary executable, on the other hand, enables interactive querying of the gRPC server with multiple User-Agents, making it simple to evaluate and process User-Agent data.
 
-## Binary use
+## Binary Usage
 
-The `guana-client` executable has two modes, one geared towards use in a Unix-pipe-friendly way and one geared towards interactive usage.
+The guana-client executable has two modes: non-interactive and interactive.
 
 ```
 Usage: guana-client [<user_agents...>] [--address <address>]
