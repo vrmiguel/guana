@@ -18,9 +18,28 @@ In order to be modular, this project is structured as follows:
 
 ## Building
 
+### With Nix
+
 This project can be built using a [Nix shell](https://nixos.wiki/wiki/Development_environment_with_nix-shell), which provides a consistent and reproducible development by managing dependencies.
 
 Once Nix is installed, run `nix-shell` in the root folder to spawn a subshell with the pre-configured development environment.
+
+```bash
+$ nix-shell
+$ # You're now in a Nix subshell with the supplied dependencies
+$ protoc --version # libprotoc 3.21.12
+$ rustc --version  # rustc 1.7.0
+```
+
+### Without Nix
+
+* On Debian-based systems:
+    - `sudo apt install -y protobuf-compiler libprotobuf-dev`
+    - And [Rustup](https://rustup.rs).
+* On Arch-based systems:
+    - `sudo pacman -S protobuf rustup`
+* On macOS with Homebrew:
+    - `brew install protobuf rustup`
 
 ### Setting up Rust
 
