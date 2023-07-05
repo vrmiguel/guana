@@ -29,9 +29,9 @@ fn handle_user_agent(user_agent: &str) -> Decision {
     }
 }
 
-/// Implements the `UserAgentAnalyzer` service defined in the Protobuf schema.
+/// Concrete type that implements the `UserAgentAnalyzer` service defined in the Protobuf schema.
 #[derive(Default)]
-pub(crate) struct UserAgentAnalyzerImpl {}
+pub struct UserAgentAnalyzerImpl {}
 
 #[tonic::async_trait]
 impl UserAgentAnalyzer for UserAgentAnalyzerImpl {
@@ -42,9 +42,13 @@ impl UserAgentAnalyzer for UserAgentAnalyzerImpl {
         let mut reply = proto::AnalyzeResponse::default();
 
         // If we know the caller's address, log it
-        request.remote_addr().map(|address| {
-            tracing::info!("Received a request from {address}",);
-        });
+        if let Some(addr) = request.remote_addr() {
+            tracing::info!("Received a request from {addr}",);
+        } else {
+            tracing::info!(
+                "Received a request from an unnamed client"
+            );
+        };
 
         // Check the User-Agent and decide on whether or not to accept it
         {

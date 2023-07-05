@@ -291,19 +291,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b6c80984affa11d98d1b88b66ac8853f143217b399d3c74116778ff8fdb4ed2e"
 
 [[package]]
-name = "guana"
-version = "0.1.0"
-dependencies = [
- "argh",
- "guana-server",
- "thiserror",
- "tokio",
- "tonic",
- "tracing",
- "tracing-subscriber",
-]
-
-[[package]]
 name = "guana-grpc-types"
 version = "0.1.0"
 dependencies = [
@@ -316,10 +303,23 @@ dependencies = [
 name = "guana-server"
 version = "0.1.0"
 dependencies = [
+ "argh",
+ "guana-service",
+ "thiserror",
+ "tokio",
+ "tonic",
+ "tonic-reflection",
+ "tracing",
+ "tracing-subscriber",
+]
+
+[[package]]
+name = "guana-service"
+version = "0.1.0"
+dependencies = [
  "guana-grpc-types",
  "tonic",
  "tonic-health",
- "tonic-reflection",
  "tracing",
 ]
 

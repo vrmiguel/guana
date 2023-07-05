@@ -9,11 +9,12 @@ In order to be modular, this project is structured as follows:
 * `proto`
     - The Protobuf schema for the project.
 * `guana-grpc-types`
-    - Shared crate for the client and server defined in the [Protobuf schema](https://todo). This is the crate the compiles the `.proto` file and generates the [`prost`]() code to interface with it.
+    - Shared crate for the client and server defined in the [Protobuf schema](https://todo). This is the crate the compiles the `.proto` file and generates the [`prost`](https://crates.io/crates/prost) code to interface with it.
+* `guana-service`
+    - The library that implements the `UserAgentAnalyzer` gRPC service.
+    - This is useful if you'd like to embed Guana in another Rust project, e.g. as an additional service within a larger gRPC server. See its README for more information.
 * `guana-server`
-    - The library that implements the `UserAgentAnalyzer` gRPC service. This is useful if you'd like to embed Guana in another Rust project. See its README for more information.
-* `guana`
-    - The binary that runs `guana-server`, a highly performant gRPC server. This is useful if you want to run Guana standalone.
+    - The binary that runs the  highly performant Guana gRPC server. This is useful if you want to run Guana standalone.
 
 ## Building
 
