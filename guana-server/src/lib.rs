@@ -49,6 +49,7 @@ pub fn user_agent_analyzer_router() -> Router {
     );
 
     tonic::transport::Server::builder()
+        .trace_fn(|_| tracing::info_span!("user_agent_server"))
         .add_service(reflection_service)
         .add_service(user_agent_service)
 }
