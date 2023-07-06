@@ -10,6 +10,8 @@ For now, it works as follows:
 
 While the functionality is simplistic, Guana serves as a solid foundation to build upon and develop more complex gRPC-based projects.
 
+For an example of it's usage, check out [`guana-client`](guana-client).
+
 ## Project structure
 
 In order to be modular, this project is structured as follows:
